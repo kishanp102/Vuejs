@@ -1,0 +1,39 @@
+<div>
+
+    <div>
+        <headers-component :title="'Contact Information'"></headers-component>
+
+        <v-btn class="ma-2" color="orange darken-2" dark @click="$router.go(-1)">
+            <v-icon dark left>mdi-arrow-left</v-icon>Back
+        </v-btn>
+    </div>
+    <div>
+        <v-card class="mx-auto" max-width="344">
+            <v-img :src="contactInfo.avatar" height="200px"></v-img>
+
+            <v-card-title>
+                {{contactInfo.first_name+' '+contactInfo.last_name}}
+            </v-card-title>
+
+            <v-card-subtitle>
+                {{contactInfo.email}}
+            </v-card-subtitle>
+            <v-btn style="color:darkred;">
+                <v-icon @click="setFavoutire" >mdi-heart</v-icon>
+              </v-btn>
+        </v-card>
+    </div>
+
+    <v-alert type="success" v-if="favouriteAdded">
+        Added to favourite.
+      </v-alert>
+
+      <v-alert v-show="alreadyExist"
+      dense
+      outlined
+      type="error"
+    >
+      Already Added to favourite
+    </v-alert>
+
+</div>
