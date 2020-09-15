@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # images
 
 ## Project setup
@@ -23,6 +22,3 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-=======
-# Vuejs
->>>>>>> 365a9376dc8a7416f0b99b5efd01ea58dcbdd53b
