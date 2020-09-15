@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Vuex, { Store } from 'vuex';
-import { VuexPersistence } from 'vuex-persist'
+import { VuexPersistence } from 'vuex-persist';
 
 Vue.use(Vuex);
 const vuexLocalStorage = new VuexPersistence({
   key: 'state.Test',
-  storage: window.localStorage
-})
+  storage: window.localStorage,
+});
 export default new Vuex.Store({
   state: {
     favourite: [],
@@ -15,12 +15,12 @@ export default new Vuex.Store({
 
 
     SET_FAVOURITE_DATA: (state: any, data: any) => {
-      state.favourite.push(data)
+      state.favourite.push(data);
     },
     REMOVE_FAVOURITE_DATA: (state: any, data: any) => {
 
-      state.favourite = data
-    }
+      state.favourite = data;
+    },
   },
   actions: {
     setFavouriteData({ commit }: any, data: any) {
@@ -35,5 +35,5 @@ export default new Vuex.Store({
   },
   modules: {
   },
-  plugins: [vuexLocalStorage.plugin]
+  plugins: [vuexLocalStorage.plugin],
 });

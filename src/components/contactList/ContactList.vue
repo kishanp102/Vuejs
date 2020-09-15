@@ -2,19 +2,19 @@
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 import Axios from 'axios';
-import HeadersComponent from '../Header.vue'
+import HeadersComponent from '../Header.vue';
 
 @Component({
-  components: { HeadersComponent }
+  components: { HeadersComponent },
 })
 export default class ContactList extends Vue {
   public queryId = null;
-  public contactInfo = null;
+  public contactInfo:any = null;
   public favouriteAdded = false;
   public alreadyExist = false;
   public async uploadDoc() {
     try {
-      let response = await Axios.get('https://reqres.in/api/users', {
+      const response = await Axios.get('https://reqres.in/api/users', {
         params: {
           id: this.$route.query.id,
         },
@@ -22,18 +22,15 @@ export default class ContactList extends Vue {
       console.log(response);
       this.contactInfo = response.data.data;
     } catch (error) {
-      console.log(error);
+      
     }
   }
 
   public setFavoutire() {
-    let data = this.$store.state.favourite.filter(
-      (e) => e.id == this.contactInfo.id
-    );
-    console.log(data);
+    const data = this.$store.state.favourite.filter(e=> e.id == this.contactInfo.id);
     if (data.length > 0) {
       this.favouriteAdded = false;
-        this.alreadyExist = true;
+      this.alreadyExist = true;
 
       setTimeout(() => {
         this.alreadyExist = false;
@@ -46,7 +43,7 @@ export default class ContactList extends Vue {
       }, 1000);
     }
   }
-  mounted() {
+  public mounted() {
     this.uploadDoc();
     // this.queryId = console.log(this.$route.query.id, 'sdasd');
   }

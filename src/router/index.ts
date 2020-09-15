@@ -4,7 +4,7 @@ import VueRouter, { RouteConfig } from 'vue-router';
 Vue.use(VueRouter);
 
 const routes: RouteConfig[] = [
- 
+
   {
     path: '/',
     name: 'Contact List',
@@ -23,7 +23,7 @@ const routes: RouteConfig[] = [
 ];
 
 const router = new VueRouter({
-  routes,mode:'history',
+  routes, mode: 'history',
 
 });
 
